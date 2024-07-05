@@ -1,0 +1,39 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: cef0300fd0fc4d2a87a85fa2093c6b283ea36f4b  # frozen: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-executables-have-shebangs
+  - repo: https://github.com/gruntwork-io/pre-commit
+    rev: a2d20160412a9bd26a11ff45987c0e178d7e10c3  # frozen: v0.1.24
+    hooks:
+      - id: shellcheck
+  - repo: https://github.com/renovatebot/pre-commit-hooks
+    rev: 7cffbc42427ddac146a602f03e50edf36579a94e  # frozen: 39.49.0
+    hooks:
+      - id: renovate-config-validator
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: cef0300fd0fc4d2a87a85fa2093c6b283ea36f4b  # frozen: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: cb3c2be894b151dff143b1baf6acbd55f2b7faed  # frozen: 0.30.0
+    hooks:
+      - id: check-github-actions
+      - id: check-github-workflows
+  - repo: https://github.com/gruntwork-io/pre-commit
+    rev: a2d20160412a9bd26a11ff45987c0e178d7e10c3  # frozen: v0.1.24
+    hooks:
+      - id: shellcheck
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: 0d9fcb51a54f3b750b911c054b4bd1a590f1b592  # frozen: v0.43.0
+    hooks:
+      - id: markdownlint
+  - repo: https://github.com/renovatebot/pre-commit-hooks
+    rev: 7cffbc42427ddac146a602f03e50edf36579a94e  # frozen: 39.49.0
+    hooks:
+      - id: renovate-config-validator

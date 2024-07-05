@@ -159,7 +159,7 @@ If you would like to create a PR in a monorepo subfolder instead, you can fill o
 
 ```yml
   monorepoUrl: <your-monorepo-url>
-  scaffoldDirectory: <directory to scaffold in i.e apps/> 
+  scaffoldDirectory: <directory to scaffold in i.e apps/>
 ```
 
 ## Connecting Port's GitHub exporter
@@ -167,4 +167,3 @@ If you would like to create a PR in a monorepo subfolder instead, you can fill o
 To make sure all of the properties (like url, readme etc..) come directly from GitHub in a seamless way, you can connect our GitHub exporter
 next [here](https://docs.getport.io/build-your-software-catalog/sync-data-to-catalog/git/github/examples#mapping-repositories-and-issues)
 you can find more information about it.
-

@@ -1,0 +1,31 @@
+name: SonarQube Scan
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+
+jobs:
+  next:
+    runs-on: ubuntu-22.04
+    permissions:
+      id-token: write
+      pull-requests: read
+      contents: read
+    steps:
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - id: secrets
+        uses: SonarSource/vault-action-wrapper@3996073b47b49ac5c58c750d27ab4edf469401c8 # 3.0.1
+        with:
+          secrets: |
+            development/kv/data/next token | sq_next_token;
+            development/kv/data/next url | sq_next_url;
+      - name: SonarQube Next Scan
+        uses: sonarsource/sonarqube-scan-action@aecaf43ae57e412bd97d70ef9ce6076e672fe0a9 # v2.3.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ fromJSON(steps.secrets.outputs.vault).sq_next_token }}
+          SONAR_HOST_URL: ${{ fromJSON(steps.secrets.outputs.vault).sq_next_url }}
