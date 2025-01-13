@@ -8,7 +8,7 @@ on:
 
 jobs:
   next:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
       id-token: write
       pull-requests: read
@@ -24,7 +24,7 @@ jobs:
             development/kv/data/next token | sq_next_token;
             development/kv/data/next url | sq_next_url;
       - name: SonarQube Next Scan
-        uses: sonarsource/sonarqube-scan-action@aecaf43ae57e412bd97d70ef9ce6076e672fe0a9 # v2.3.0
+        uses: sonarsource/sonarqube-scan-action@bfd4e558cda28cda6b5defafb9232d191be8c203 # v4.2.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ fromJSON(steps.secrets.outputs.vault).sq_next_token }}
