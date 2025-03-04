@@ -64,13 +64,13 @@ create_repository() {
   if [ "$userType" == "User" ]; then
     curl --silent --show-error -X POST -i -H "Authorization: token $github_token" -H "X-GitHub-Api-Version: 2022-11-28" \
       -d "{ \
-          \"name\": \"$repository_name\", \"$repository_visibility\": true
+          \"name\": \"$repository_name\", \"visibility\": \"$repository_visibility\"
         }" \
       "$git_url/user/repos"
   elif [ "$userType" == "Organization" ]; then
     curl --silent --show-error -i -H "Authorization: token $github_token" \
       -d "{ \
-          \"name\": \"$repository_name\", \"$repository_visibility\": true
+          \"name\": \"$repository_name\", \"visibility\": \"$repository_visibility\"
         }" \
       "$git_url/orgs/$org_name/repos"
   else
